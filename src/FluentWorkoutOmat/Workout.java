@@ -2,7 +2,7 @@ package FluentWorkoutOmat;
 
 public class Workout {
     private Level level;
-    private boolean lastPractice;
+    private final int BREAK = 3000;
 
     public Workout(Level level) {
         this.level = level;
@@ -59,7 +59,7 @@ public class Workout {
     private void practice(String cheer) {
         for (int i = 1; i <= this.level.repeats; i++) {
             System.out.println(cheer);
-            this.timeOut(1000);
+            this.timeOut(BREAK);
         }
     }
 
@@ -67,7 +67,7 @@ public class Workout {
         System.out.println("short relaxation break");
         this.timeOut(10000);
         System.out.println("now keep going");
-        this.timeOut(3000);
+        this.timeOut(BREAK);
     }
 
     private void timeOut(int time) {
@@ -83,7 +83,7 @@ public class Workout {
             System.out.println("your workout is fineshed for today, you already look like an Adonis!");
         }else{
             System.out.println("ready for the next practice?");
-            this.doBreakBetweenPractices(3000);
+            this.doBreakBetweenPractices(BREAK);
         }
         return this;
     }
