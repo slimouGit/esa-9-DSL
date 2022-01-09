@@ -1,0 +1,18 @@
+grammar org.xtext.workout.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/workout/mydsl/MyDsl"
+
+Model:
+	workout+=Workout*;
+	
+Workout:
+	performExercise;
+
+performExercise:
+	'do' INT practice 'as' level;
+	
+level:
+	'beginner' | 'practiced' | 'professional';
+	
+practice: 
+	'push-ups' | 'knee-bends' | 'sit-ups';
